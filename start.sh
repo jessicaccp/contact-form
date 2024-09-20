@@ -6,8 +6,9 @@ if [ ! -d "venv" ]; then
 fi
 source venv/bin/activate
 python -m pip install -r requirements.txt
-nohup python manage.py runserver 8000 > ../backlog.out 2> ../backlog.err &
+LOGS_DIR=../logs
+nohup python manage.py runserver 8000 > $LOGS_DIR/back.out 2> $LOGS_DIR/back.err &
 cd ../frontend
 npm install
-nohup npm run dev -- --port 8001 > ../frontlog.out 2> ../frontlog.err &
+nohup npm run dev -- --port 8001 > $LOGS_DIR/front.out 2> $LOGS_DIR/front.err &
 cd ..
