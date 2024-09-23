@@ -3,9 +3,9 @@ from rest_framework.routers import DefaultRouter
 from .views import ContactFormViewSet, SubmitContactFormView
 
 router = DefaultRouter()
-router.register(r'contactform', ContactFormViewSet)
+router.register(r'forms', ContactFormViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('submit-contact-form/', SubmitContactFormView.as_view(), name='submit-contact-form'),
+    path('submit/', SubmitContactFormView.as_view(), name='submit'),
 ]
