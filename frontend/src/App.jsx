@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import Input from "./components/Input";
+import FormField from "./components/FormField";
 import api from "./services/api.js";
 
 export default function App() {
@@ -45,49 +45,58 @@ export default function App() {
   };
 
   return (
-    <div className="w-screen h-screen bg-gray-100 flex justify-center items-center">
-      <div className="flex flex-col w-1/2">
-        <header>
-          <h1>Contact Form</h1>
+    <div className="w-dvw h-dvh bg-gradient-to-r from-violet-200 to-pink-200 p-4 flex flex-col">
+      <div className="container max-w-[600px] flex flex-col gap-4 m-auto">
+        <header className="flex flex-col items-center">
+          <h1 className="text-3xl font-bold">Get in contact with us</h1>
+          <small className="text-lg">You can send a hello to our team!</small>
         </header>
         <main>
-          <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-            <Input
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+            <FormField
               label="Name"
               name="name"
               required={true}
+              autofocus={true}
               minLength={3}
               placeholder="Jane Doe"
               handle={handleNameChange}
             />
-            <Input
+            <FormField
               label="Email"
               type="email"
               name="email"
               required={true}
-              placeholder="janedoe@email.com"
+              placeholder="jane.doe@mail.com"
               handle={handleEmailChange}
             />
-            <Input
+            <FormField
               label="Phone"
               type="tel"
               name="phone"
               placeholder="+55 85 98765-4321"
               handle={handlePhoneChange}
             />
-            <Input
+            <FormField
               label="Subject"
               name="subject"
-              placeholder="Subject"
+              required={true}
+              placeholder="I have a question about..."
               handle={handleSubjectChange}
             />
-            <Input
+            <FormField
               label="Message"
               name="message"
-              placeholder="Message"
+              rows={3}
+              required={true}
+              placeholder="Please, I would like to know more about..."
               handle={handleMessageChange}
             />
-            <input type="submit" value="Submit" />
+            <input
+              type="submit"
+              value="Submit"
+              className="mt-2 p-2 bg-pink-600 hover:bg-pink-800 active:bg-pink-400 text-white rounded cursor-pointer"
+            />
           </form>
         </main>
       </div>
