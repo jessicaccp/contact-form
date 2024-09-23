@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import Input from "./components/Input";
+import api from "./services/api.js";
 
 export default function App() {
   const [name, setName] = useState("");
@@ -26,8 +28,8 @@ export default function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8000/api/contactform", {
+    api
+      .post("/submit-contact-form/", {
         name,
         email,
         phone,
@@ -50,48 +52,40 @@ export default function App() {
         </header>
         <main>
           <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
+            <Input
+              label="Name"
               name="name"
-              required
+              required={true}
               minLength={3}
               placeholder="Jane Doe"
-              onChange={handleNameChange}
+              handle={handleNameChange}
             />
-            <label htmlFor="email">Email</label>
-            <input
+            <Input
+              label="Email"
               type="email"
-              id="email"
               name="email"
-              required
+              required={true}
               placeholder="janedoe@email.com"
-              onChange={handleEmailChange}
+              handle={handleEmailChange}
             />
-            <label htmlFor="phone">Phone</label>
-            <input
+            <Input
+              label="Phone"
               type="tel"
-              id="phone"
               name="phone"
               placeholder="+55 85 98765-4321"
-              onChange={handlePhoneChange}
+              handle={handlePhoneChange}
             />
-            <label htmlFor="subject">Subject</label>
-            <input
-              type="text"
-              id="subject"
+            <Input
+              label="Subject"
               name="subject"
               placeholder="Subject"
-              onChange={handleSubjectChange}
+              handle={handleSubjectChange}
             />
-            <label htmlFor="message">Message</label>
-            <input
-              type="text"
-              id="message"
+            <Input
+              label="Message"
               name="message"
               placeholder="Message"
-              onChange={handleMessageChange}
+              handle={handleMessageChange}
             />
             <input type="submit" value="Submit" />
           </form>
