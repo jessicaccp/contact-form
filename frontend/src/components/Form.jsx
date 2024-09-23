@@ -1,4 +1,5 @@
 import FormField from "./FormField";
+import Button from "./Button";
 import { useState } from "react";
 import api from "../services/api";
 
@@ -37,15 +38,17 @@ const Form = ({ setError, setSuccess }) => {
       })
       .then((response) => {
         setSuccess(true);
+        setError(false);
       })
       .catch((error) => {
         setSuccess(false);
         setError(error);
+        console.log(error);
       });
   };
 
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
       <FormField
         label="Name"
         name="name"
@@ -85,11 +88,7 @@ const Form = ({ setError, setSuccess }) => {
         placeholder="Please, I would like to know more about..."
         handle={handleMessageChange}
       />
-      <input
-        type="submit"
-        value="Submit"
-        className="mt-2 p-2 bg-pink-600 hover:bg-pink-800 active:bg-pink-400 text-white rounded cursor-pointer"
-      />
+      <Button type="submit" value="Submit" />
     </form>
   );
 };
