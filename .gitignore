@@ -4,7 +4,6 @@ venv/
 __pycache__/
 
 # React
-# Logs
 logs
 *.log
 npm-debug.log*
@@ -29,4 +28,4 @@ dist-ssr
 *.sln
 *.sw?
 
-logs/
+*.pyc
