@@ -1,7 +1,10 @@
-const Header = ({ content }) => {
+const Header = ({ title, subtitle }) => {
   return (
     <>
-      <header className="flex flex-col items-center">{content}</header>
+      <header className="flex flex-col items-center">
+        <h1 className="text-3xl font-bold">{title}</h1>
+        <small className="text-lg">{subtitle}</small>
+      </header>
     </>
   );
 };

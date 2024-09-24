@@ -12,12 +12,8 @@ export default function Index() {
     setError(null);
   };
 
-  const headerContent = (
-    <>
-      <h1 className="text-3xl font-bold">Get in contact with us</h1>
-      <small className="text-lg">You can send a hello to our team!</small>
-    </>
-  );
+  const headerTitle = "Get in contact with us";
+  const headerSubtitle = "You can send a hello to our team!";
 
   const mainContent = (
     <>
@@ -40,7 +36,11 @@ export default function Index() {
 
   return (
     <>
-      <Default header={headerContent} main={mainContent} />
+      <Default
+        headerTitle={headerTitle}
+        headerSubtitle={headerSubtitle}
+        main={mainContent}
+      />
     </>
   );
 }
