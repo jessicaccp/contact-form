@@ -1,6 +1,8 @@
 # contact-form
 
-A contact form build with Django, React and TailwindCSS.
+A contact form system made with Django, React and TailwindCSS.
+
+Messages sent via the form can be managed through an admin panel.
 
 ![Screenshot](screenshot.png)
 
